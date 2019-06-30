@@ -1,0 +1,3 @@
+图灵学院
+学习环境：anaconda+pycharm+jupyter+github
+ubuntu 启动jupyter notebook，在终端敲入jupyter notebook即可。

@@ -1,0 +1,15 @@
+# -*- coding: utf-8 -*-
+from urllib import request
+
+if __name__ == '__main__':
+    url = 'https://mail.163.com/js6/main.jsp?sid=OAGgYIpDVTbvNNzRPYDDlCECsyYezbCD&df=mail163_letter#module=welcome.WelcomeModule%7C%7B%7D'
+
+    headers = {
+        'cookie' : 'Province=021; City=021; UM_distinctid=16a5cc0fc91741-098108a04a6b27-b79183d-1fa400-16a5cc0fc92747; _ntes_nnid=06d95c3b87b340c15443c3b426e9d0fe,1556334316073; _ntes_nuid=06d95c3b87b340c15443c3b426e9d0fe; NNSSPID=c4abe680640c4f6d9aa91a4db83ce7d8; NTES_hp_textlink1=old; starttime=; NTES_SESS=kr8BEGWAJWZ3AZ3XYa3fkQIO7BF1jZ7t0bIwVM3CRVpjRcNfRVhy3u_MuLjqxtsMQ4ElXIzkSALsLv1LARleKinzwJ9bNNpKHQ_T9paZCs2e0y3VTqEYKrkmwblJc7ZYXTI2K85wZ0eYf7QMOfE5vVIDOPtwq3teYCmNtHih4lNrlKn6plIztBGdjiSGhpq88aeniAjnKYDvbsMN5OZajz5ioeA3DWTqs; S_INFO=1556334339|0|3&80##|m17793217774_1; P_INFO=m17793217774_1@163.com|1556334339|0|mail163|00&99|shh&1556297992&mail_client#shh&null#10#0#0|177774&1|kaola&mail163&yanxuan_web|17793217774@163.com; nts_mail_user=17793217774@163.com:-1:1; df=mail163_letter; mail_upx=t4gd.mail.163.com|t1gd.mail.163.com|t2gd.mail.163.com|t3gd.mail.163.com|t1bj.mail.163.com|t2bj.mail.163.com|t3bj.mail.163.com|t4bj.mail.163.com; mail_upx_nf=; mail_idc=; Coremail=6dabe0329006a%OAGgYIpDVTbvNNzRPYDDlCECsyYezbCD%g2a12.mail.163.com; MAIL_MISC=m17793217774_1; cm_last_info=dT1tMTc3OTMyMTc3NzRfMSU0MDE2My5jb20mZD1odHRwcyUzQSUyRiUyRm1haWwuMTYzLmNvbSUyRmpzNiUyRm1haW4uanNwJTNGc2lkJTNET0FHZ1lJcERWVGJ2Tk56UlBZRERsQ0VDc3lZZXpiQ0Qmcz1PQUdnWUlwRFZUYnZOTnpSUFlERGxDRUNzeVllemJDRCZoPWh0dHBzJTNBJTJGJTJGbWFpbC4xNjMuY29tJTJGanM2JTJGbWFpbi5qc3AlM0ZzaWQlM0RPQUdnWUlwRFZUYnZOTnpSUFlERGxDRUNzeVllemJDRCZ3PWh0dHBzJTNBJTJGJTJGbWFpbC4xNjMuY29tJmw9LTEmdD0tMSZhcz10cnVl; MAIL_SESS=kr8BEGWAJWZ3AZ3XYa3fkQIO7BF1jZ7t0bIwVM3CRVpjRcNfRVhy3u_MuLjqxtsMQ4ElXIzkSALsLv1LARleKinzwJ9bNNpKHQ_T9paZCs2e0y3VTqEYKrkmwblJc7ZYXTI2K85wZ0eYf7QMOfE5vVIDOPtwq3teYCmNtHih4lNrlKn6plIztBGdjiSGhpq88aeniAjnKYDvbsMN5OZajz5ioeA3DWTqs; MAIL_SINFO=1556334339|0|3&80##|m17793217774_1; MAIL_PINFO=m17793217774_1@163.com|1556334339|0|mail163|00&99|shh&1556297992&mail_client#shh&null#10#0#0|177774&1|kaola&mail163&yanxuan_web|17793217774@163.com; secu_info=1; mail_entry_sess=52dbd68d65d2d789a04f9105c9e5a4455e2af58201ee01a642a6cc3bb3de52f043eb6565ff9301e0551f1cb86ace10bdebeb7479e9ee28a9a0fb4add0d9ed2fd4f0ac6a76611c4b6114117da64dabbcb48c5adf11cda17a27e395cbdef8092bd5ff6ae8ded92c7e91ad509e58a48f43d9b6439da020d03e421f37a5a6c8910d58ff8835195834e608e3b6ab4dbe71b35f01339aee089d0d603b7af7e1fcadf4818eb97c2a5bacf503038093dcb0c08678ed6115f31c0be176538b1e5b62747c9; JSESSIONID=93018A8F4A465404BB2765A7930AA369'
+    }
+
+    req = request.Request(url, headers=headers)
+    rsp = request.urlopen(req)
+    html = rsp.read().decode()
+    with open('rsp.html', 'w' ,encoding='utf-8') as f:
+        f.write(html)
