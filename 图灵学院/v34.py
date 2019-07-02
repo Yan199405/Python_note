@@ -40,6 +40,6 @@ for node in soup.head.contents:
 
 import re
 print('=='*50)
-tags = soup.find_all(re.compile('^me'),content='always')
+tags = soup.find_all(re.compile('^me'), content='always')
 for tag in tags:
     print(tag)

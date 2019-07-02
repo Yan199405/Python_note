@@ -1,34 +1,31 @@
-'''
-实例 - 获取知乎发现上的问题链接
-'''
-from urllib.parse import urljoin
-
 import re
 import requests
 
-from bs4 import BeautifulSoup
+url = 'http://www.baidu.com'
 
+# response = requests.get(url)
+# # 返回的是Unicode格式的数据
+# html = response.text
+# print(type(html),html)
+#
+# # 返回cookie对象
+# cookiejar = response.cookies
+# print(cookiejar)
+# # 将cookie转为字典
+# cookiedict = requests.utils.dict_from_cookiejar(cookiejar)
+# print(cookiedict)
 
-def main():
-    headers = {'user-agent': 'Baiduspider'}
-    proxies = {
-        'http': 'http://122.114.31.177:808'
-    }
-    base_url = 'https://www.zhihu.com/'
-    seed_url = urljoin(base_url, 'explore')  #explorer是知乎发现
-    resp = requests.get(seed_url,
-                        headers=headers,
-                        proxies=proxies)
-    soup = BeautifulSoup(resp.text, 'lxml')
-    href_regex = re.compile(r'^/question')     #通过分析网页，问题都是以“/question”开头，通过正则来匹配问题链接
-    link_set = set()
-    for a_tag in soup.find_all('a', {'href': href_regex}):
-        if 'href' in a_tag.attrs:
-            href = a_tag.attrs['href']
-            full_url = urljoin(base_url, href)
-            link_set.add(full_url)
-    print('Total %d question pages found.' % len(link_set))
+## 实现人人网登陆
+ssion = requests.session()
 
+headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36"}
 
-if __name__ == '__main__':
-    main()
+# data = {'user':'17793217774','password':'abmm1314'}
+
+ssion.post('http://www.renren.com/SysHome.do')
+
+response = ssion.get('http://www.renren.com/971353277/newsfeed/photo')
+
+print(response.text)
+print(ssion.cookies)
+ssion.cookies=None

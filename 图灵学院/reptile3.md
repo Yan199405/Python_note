@@ -5,6 +5,8 @@
     - crawley
 - scrapy框架介绍
     - https://docs.scrapy.org/en/latest/
+    - 中文：https://scrapy-chs.readthedocs.io/zh_CN/latest/index.html
+    - http://www.scrapyd.cn/doc/
 - 安装：通过pip   pip install Scrapy
 - scrapy概述
     - 包含各个部件
