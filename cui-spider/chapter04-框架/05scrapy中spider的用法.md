@@ -1,6 +1,3 @@
-#
-
-
 # post请求
 
 scrapy默认是get请求，如何让scrapy进行post请求？

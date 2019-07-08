@@ -3,7 +3,6 @@ import scrapy
 
 from quotetutorial.items import QuoteItem
 
-
 class QuotesSpider(scrapy.Spider):
     name = 'quotes'
     allowed_domains = ['quotes.toscrape.com']
@@ -13,7 +12,7 @@ class QuotesSpider(scrapy.Spider):
         quotes = response.css('.quote')
         for quote in quotes:
             item = QuoteItem()
-            text = quote.css('.text::text').extract_first()    # extract_frist 返回第一个值
+            text = quote.css('.text::text').extract_first()          # extract_frist 返回第一个值
             author = quote.css('.author::text').extract_first()      # extract返回全部
             tags =quote.css('.tag::text').extract()
             item['text'] = text

@@ -4,12 +4,11 @@
 #
 # See documentation in:
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
-import logging
 
 from scrapy import signals
 
 
-class HttpbintestSpiderMiddleware(object):
+class MyspiderSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -57,7 +56,7 @@ class HttpbintestSpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class HttpbintestDownloaderMiddleware(object):
+class MyspiderDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -102,17 +101,3 @@ class HttpbintestDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
-
-class ProxyMiddleware(object):
-    logger = logging.getLogger(__name__)
-# 设置代理
-#     def process_request(self, request, spider):
-#         self.logger.debug('Using Proxy')
-#         request.meta['proxy'] = 'http://47.244.76.139:3128'
-#     def process_response(self, request, response, spider):
-#         response.status = 201
-#         return response
-    def process_exception(self, request, exception, spider):
-        self.logger.debug('Get Excption')
-        self.logger.debug('Try second time!')
-        return request
