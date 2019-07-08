@@ -68,6 +68,13 @@ ImportError: DLL load failed: 找不到指定的程序。
     
 #  测试安装是否完成 
 - 直接运行scrapy测试没有报错即可
+- 查看版本
+    
+    >scrapy version
+    
+    加-v参数看依赖库的版本
+    >scrapy version -v
+
 - 简单使用
     - 启动一个项目
         
