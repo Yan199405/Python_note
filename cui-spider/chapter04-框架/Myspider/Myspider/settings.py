@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'Myspider.spiders'
 
 # MONGO_CONFIG
 MONGO_URI='localhost'
-MONGO_DB='quotestutorial'
+MONGO_DB='itcast'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'Myspider (+http://www.yourdomain.com)'
@@ -68,7 +68,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'Myspider.pipelines.MyspiderPipeline': 300,
+   'Myspider.pipelines.InfoPipeline': 200,
    'Myspider.pipelines.MongoPipeline': 350,
 }
 
